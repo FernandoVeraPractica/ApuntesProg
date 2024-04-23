@@ -26,8 +26,8 @@ public class Ejercicio3_1 {
             br = new BufferedReader(fr);
             int contadorEdad = 0;
             int contadorEstatura = 0;
-            int sumaEdad = 0;
-            double sumaEstatura = 0;
+            int sumatorioEdad = 0;
+            double sumatorioEstatura = 0;
 
             String datos = br.readLine();
 
@@ -35,24 +35,29 @@ public class Ejercicio3_1 {
                 
                 sc = new Scanner(datos).useLocale(Locale.US);
                 
-                if (sc.hasNextLine()) {
+                if (sc.hasNext()) {
                     nombre = sc.next();
-                    System.out.println(datos);
+                    System.out.println(nombre);
                 }
 
                 if (sc.hasNextInt()) {
                     edad = sc.nextInt();
+                    sumatorioEdad += edad;
                     contadorEdad++;
                 }
 
                 if (sc.hasNextDouble()) {
                     estatura = sc.nextDouble();
+                    sumatorioEstatura+=estatura;
                     contadorEstatura++;
                 }
                 
                 datos = br.readLine();
             }
-
+            
+            System.out.println("Media de edad: "+(sumatorioEdad/contadorEdad));
+            System.out.println("Media de estatura: "+(sumatorioEstatura/contadorEstatura));
+            
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }finally{
