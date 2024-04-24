@@ -20,13 +20,14 @@ public class ejercicio1 {
             sc = new Scanner(System.in);
             
             System.out.println("Introduce las palabras que se almacenarán en el archivo: ");
-            String cad = sc.next();
+            String cad = sc.nextLine();
             
             while(!cad.equalsIgnoreCase("fin")){
                 bw.write(cad);
                 bw.newLine();
-                cad = sc.next();
+                cad = sc.nextLine();
             }
+            
         }catch(IOException e){
             System.out.println(e.getMessage());
         }finally{
