@@ -14,15 +14,11 @@ public class Ejercicio2 {
 
     public static void main(String[] args) {
 
-        FileReader fr = null;
-        BufferedReader br = null;
         Scanner sc = null;
 
-        try {
+        try (BufferedReader br = new BufferedReader(new FileReader("Reales.txt"))) {
             double numero;
             double suma = 0;
-            fr = new FileReader("Reales.txt");
-            br = new BufferedReader(fr);
 
             String cad = br.readLine();
             while (cad != null) {
@@ -35,18 +31,12 @@ public class Ejercicio2 {
                 cad = br.readLine();
             }
             System.out.println("Suma: " + suma);
+
         } catch (IOException e) {
             System.out.println(e.getMessage());
-        } finally {
-            if (br != null) {
-                try {
-                    br.close();
-                } catch (IOException e) {
-                    System.out.println(e.getMessage());
-                }
-
-            }
 
         }
+
     }
 }
+

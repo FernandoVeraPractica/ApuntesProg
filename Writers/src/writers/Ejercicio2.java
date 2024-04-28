@@ -8,7 +8,7 @@ import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class ejercicio1 {
+public class Ejercicio2 {
     public static void main(String[] args) {
         FileWriter fw = null;
         BufferedWriter bw = null;
