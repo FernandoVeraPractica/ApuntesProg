@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?>
-
-<socio id="23">
-    <nombre>Martin Fisher</nombre>
-    <direccion>43 Bass St</direccion>
-    <alta>12/12/2020</alta>
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<socio id="1">
+    <nombre>Karim Benzema</nombre>
+    <direccion>Calle Alta</direccion>
+    <alta>12-12-2024</alta>
 </socio>

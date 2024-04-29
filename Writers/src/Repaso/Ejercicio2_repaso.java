@@ -6,7 +6,7 @@ package Repaso;
 
 import java.util.Scanner;
 import java.io.*;
-import java.util.Locale;
+
 
 public class Ejercicio2_repaso {
     public static void main(String[] args) {

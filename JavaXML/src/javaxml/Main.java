@@ -1,12 +1,8 @@
 
 package javaxml;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.*;
+import java.util.logging.*;
 import javax.xml.bind.*;
 
 
@@ -18,7 +14,7 @@ public class Main {
             JAXBContext contexto = JAXBContext.newInstance(Socio.class);
             Unmarshaller um = contexto.createUnmarshaller();
             
-            Socio s = (Socio) um.unmarshal(new FileReader("socio.xml"));
+            Socio s = (Socio) um.unmarshal(new FileReader("socio1.xml"));
             System.out.println(s);
             
             Marshaller m = contexto.createMarshaller();
@@ -26,6 +22,8 @@ public class Main {
             
             m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, Boolean.TRUE);
             m.marshal(s1, new FileWriter("socio1.xml"));
+            
+            
             
         }catch(JAXBException e){
             System.out.println(e.getMessage());
