@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<agenda>
+    <contactos>
+        <contacto>
+            <nombre>Fernando</nombre>
+            <telefono>32</telefono>
+        </contacto>
+    </contactos>
+    <numeroContactos>1</numeroContactos>
+</agenda>
