@@ -5,6 +5,7 @@ Recuperar la tabla.
  */
 package ejercicios.ejer1;
 
+import java.io.EOFException;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -32,15 +33,20 @@ public class Main {
                 ObjectInputStream objectin = new ObjectInputStream(new FileInputStream("socios.dat"))){
             
             objectout.writeObject(listaSocios);
-            Socio[] listaLeida = (Socio[]) objectin.readObject();
-            System.out.println(Arrays.deepToString(listaLeida));
+            
+            while (true){
+                Socio[] listaLeida = (Socio[]) objectin.readObject();
+                System.out.println(Arrays.deepToString(listaLeida));
+            }
             
             
         } catch (FileNotFoundException ex) {
             System.out.println("Archivo no encontrado.");
-        } catch (IOException ex) {
-            System.out.println("Error de lectura / escritura.");
+        } catch (EOFException ex) {
+            System.out.println("Se ha llegado al final del documento.");
         } catch (ClassNotFoundException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
