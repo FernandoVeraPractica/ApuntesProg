@@ -19,7 +19,7 @@ public class Main {
 
     static void añadirNumeroLlamadas(int n) {
         
-        try (ObjectOutputStream objOut = new ObjectOutputStream(new FileOutputStream("registroLlamadas.dat", true))){
+        try (ObjectOutputStream objOut = new ObjectOutputStream(new FileOutputStream("registroLlamadas.dat"))){
             objOut.writeInt(n);
         } catch (FileNotFoundException ex) {
             System.out.println("Archivo no encontrado.");
@@ -29,7 +29,7 @@ public class Main {
     }
     
     
- /*   static void consultarNumeroLlamadas() {
+    static void consultarNumeroLlamadas() {
          
          try{
              ObjectInputStream objIn = new ObjectInputStream(new FileInputStream("registroLlamadas.dat"));
@@ -46,7 +46,7 @@ public class Main {
              System.out.println("Error de lectura.");
         }
      }
- */
+ 
 
     static int menu() {
         Scanner sc = new Scanner(System.in);
@@ -70,7 +70,7 @@ public class Main {
                 break;
 
             case 2:
-                //consultarNumeroLlamadas();
+                consultarNumeroLlamadas();
                 break;
                 
             case 3:
