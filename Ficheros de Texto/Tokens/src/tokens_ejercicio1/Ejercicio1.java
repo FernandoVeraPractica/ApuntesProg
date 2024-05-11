@@ -5,6 +5,7 @@ Muestra el resultado por pantalla.
  */
 package tokens_ejercicio1;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 
@@ -14,7 +15,7 @@ public class Ejercicio1 {
         String nombre;
         double estatura;
         int edad;
-        Scanner sc = new Scanner (System.in);
+        Scanner sc = new Scanner (System.in).useLocale(Locale.US);
 
         
         System.out.println("Introduce el nombre, la estatura y la edad de un deportista separado por espacios.");

@@ -14,13 +14,15 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class Main {
 
     static void añadirNumeroLlamadas(int n) {
         
-        try (ObjectOutputStream objOut = new ObjectOutputStream(new FileOutputStream("registroLlamadas.dat", true))){
-            objOut.writeInt(n);
+        try (ObjectOutputStream objOut = new ObjectOutputStream(new FileOutputStream("registroLlamadas.dat"))){
+            objOut.writeInt((Integer.valueOf(n)));
         } catch (FileNotFoundException ex) {
             System.out.println("Archivo no encontrado.");
         } catch (IOException ex) {
@@ -29,27 +31,35 @@ public class Main {
     }
     
     
- /*   static void consultarNumeroLlamadas() {
+    static void consultarNumeroLlamadas(ObjectInputStream objIn) {
          
          try{
-             ObjectInputStream objIn = new ObjectInputStream(new FileInputStream("registroLlamadas.dat"));
+             objIn = new ObjectInputStream(new FileInputStream("registroLlamadas.dat"));
              while (true){
                  int numLlamadaLeido = objIn.readInt();
                  System.out.println("Número de llamadas: "+numLlamadaLeido);
-             }
-             
+             }   
         } catch (FileNotFoundException ex) {
              System.out.println("Archivo no encontrado.");
         } catch (EOFException ex){
              System.out.println("Se ha alzancado el final del documento.");
-        } catch (IOException ex){
-             System.out.println("Error de lectura.");
-        }
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }finally{
+             if (objIn != null){
+                 try{
+                     objIn.close();
+                 }catch(IOException ex){
+                     System.out.println("Error al cerrar el lector.");
+                 }
+             }
+         }
      }
- */
+ 
 
     static int menu() {
         Scanner sc = new Scanner(System.in);
+        ObjectInputStream objIn = null;
         int opcion;
         int salir = 0;
         int numeroLlamadas;
@@ -70,7 +80,7 @@ public class Main {
                 break;
 
             case 2:
-                //consultarNumeroLlamadas();
+                consultarNumeroLlamadas(objIn);
                 break;
                 
             case 3:
